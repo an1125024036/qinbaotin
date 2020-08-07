@@ -1,11 +1,12 @@
 <template>
   <div>
+    <router-view></router-view>
       <van-tabbar v-model="active" active-color="#ffc000" inactive-color="#000">
-        <van-tabbar-item replace  to="#/" icon="service-o">标签</van-tabbar-item>
-        <van-tabbar-item replace  to="#/#" icon="play-circle-o">标签</van-tabbar-item>
-        <van-tabbar-item replace  to="#/#/#" icon="bulb-o">标签</van-tabbar-item>
-        <van-tabbar-item replace  to="#/#/#/#" icon="point-gift-o">标签</van-tabbar-item>
-        <van-tabbar-item replace  to="#/#/#/#/#" icon="contact">标签</van-tabbar-item>
+        <van-tabbar-item @click="fangfa('zhong')" icon="service-o">听</van-tabbar-item>
+        <van-tabbar-item @click="fangfa('home')" icon="play-circle-o">看</van-tabbar-item>
+        <van-tabbar-item @click="fangfa('jian')" icon="bulb-o">讲</van-tabbar-item>
+        <van-tabbar-item @click="fangfa()"  icon="point-gift-o">礼</van-tabbar-item>
+        <van-tabbar-item @click="fangfa('me')"  icon="contact">我</van-tabbar-item>
       </van-tabbar>
   </div>
 </template>
@@ -14,7 +15,15 @@
 export default {
   data() {
     return {
-      active:""
+      active:"",
+      wz:""
+    }
+  },
+  methods: {
+    fangfa(value){
+      console.log(value);
+      this.$emit('show',value)
+
     }
   },
 };
